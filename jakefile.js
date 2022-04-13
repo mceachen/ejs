@@ -5,7 +5,7 @@ var exec = function (cmd) {
   execSync(cmd, {stdio: 'inherit'});
 };
 
-/* global jake, task, desc, publishTask */
+/* global jake, task, desc */
 
 task('build', ['lint', 'clean', 'browserify', 'minify'], function () {
   console.log('Build completed.');
