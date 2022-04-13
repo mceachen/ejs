@@ -232,7 +232,7 @@ suite('unit testing exported functions of module \'utils.js\'', function () {
    */
   suite('unit testing function \'hyphenToCamel\' of module \'utils.js\'', function () {
     test('it should be callable without parameters', function () {
-      const message = 'Cannot read property \'replace\' of undefined';
+      const message = `Cannot read properties of undefined (reading 'replace')`;
       assert.throws(() => { utils.hyphenToCamel(); }, { name: 'TypeError', message });
     });
     test('it should be callable with parameter \'str\' {string}', function () {

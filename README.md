@@ -7,8 +7,11 @@ Embedded JavaScript templates<br/>
 ## Installation
 
 ```bash
-$ npm install ejs
+$ npm install @mceachen/ejs
 ```
+## Fork information
+
+This fork removes CLI support (allowing us to drop the `jake` dependency).
 
 ## Features
 
@@ -256,66 +259,6 @@ Most of EJS will work as expected; however, there are a few things to note:
   ```
 
 See the [examples folder](https://github.com/mde/ejs/tree/master/examples) for more details.
-
-## CLI
-
-EJS ships with a full-featured CLI. Options are similar to those used in JavaScript code:
-
-  - `-o / --output-file FILE`            Write the rendered output to FILE rather than stdout.
-  - `-f / --data-file FILE`              Must be JSON-formatted. Use parsed input from FILE as data for rendering.
-  - `-i / --data-input STRING`           Must be JSON-formatted and URI-encoded. Use parsed input from STRING as data for rendering.
-  - `-m / --delimiter CHARACTER`         Use CHARACTER with angle brackets for open/close (defaults to %).
-  - `-p / --open-delimiter CHARACTER`    Use CHARACTER instead of left angle bracket to open.
-  - `-c / --close-delimiter CHARACTER`   Use CHARACTER instead of right angle bracket to close.
-  - `-s / --strict`                      When set to `true`, generated function is in strict mode
-  - `-n / --no-with`                     Use 'locals' object for vars rather than using `with` (implies --strict).
-  - `-l / --locals-name`                 Name to use for the object storing local variables when not using `with`.
-  - `-w / --rm-whitespace`               Remove all safe-to-remove whitespace, including leading and trailing whitespace.
-  - `-d / --debug`                       Outputs generated function body
-  - `-h / --help`                        Display this help message.
-  - `-V/v / --version`                   Display the EJS version.
-
-Here are some examples of usage:
-
-```shell
-$ ejs -p [ -c ] ./template_file.ejs -o ./output.html
-$ ejs ./test/fixtures/user.ejs name=Lerxst
-$ ejs -n -l _ ./some_template.ejs -f ./data_file.json
-```
-
-### Data input
-
-There is a variety of ways to pass the CLI data for rendering.
-
-Stdin:
-
-```shell
-$ ./test/fixtures/user_data.json | ejs ./test/fixtures/user.ejs
-$ ejs ./test/fixtures/user.ejs < test/fixtures/user_data.json
-```
-
-A data file:
-
-```shell
-$ ejs ./test/fixtures/user.ejs -f ./user_data.json
-```
-
-A command-line option (must be URI-encoded):
-
-```shell
-./bin/cli.js -i %7B%22name%22%3A%20%22foo%22%7D ./test/fixtures/user.ejs
-```
-
-Or, passing values directly at the end of the invocation:
-
-```shell
-./bin/cli.js -m $ ./test/fixtures/user.ejs name=foo
-```
-
-### Output
-
-The CLI by default send output to stdout, but you can use the `-o` or `--output-file`
-flag to specify a target file to send the output to.
 
 ## IDE Integration with Syntax Highlighting
 
