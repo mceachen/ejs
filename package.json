@@ -37,6 +37,10 @@
     "test": "mocha",
     "release": "release-it"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "release-it": {
     "hooks": {
       "before:init": [
