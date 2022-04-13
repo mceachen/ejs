@@ -66,20 +66,3 @@ desc('Runs the EJS test suite');
 task('test', ['lint'], function () {
   spawnSync(path.join('./node_modules/.bin/mocha'), ['-u', 'tdd'], {stdio: 'inherit'});
 });
-
-publishTask('@mceachen/ejs', ['build'], function () {
-  this.packageFiles.include([
-    'README.md',
-    'LICENSE',
-    'package.json',
-    'ejs.js',
-    'ejs.min.js',
-    'lib/**',
-  ]);
-});
-
-jake.Task.publish.on('complete', function () {
-  console.log('Updating hosted docs...');
-  console.log('If this fails, run jake docPublish to re-try.');
-  jake.Task.docPublish.invoke();
-});
