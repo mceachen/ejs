@@ -1,4 +1,5 @@
-Embedded JavaScript templates<br/>
+Embedded JavaScript templates
+
 [![Node.js CI](https://github.com/mceachen/ejs/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/mceachen/ejs/actions/workflows/node.js.yml)
 [![Known Vulnerabilities](https://snyk.io/test/npm/@mceachen/ejs/badge.svg?style=flat)](https://snyk.io/test/npm/@mceachen/ejs)
 =============================
@@ -11,6 +12,8 @@ $ npm install @mceachen/ejs
 ## Fork information
 
 **This fork removes CLI support (allowing us to drop the `jake` dependency), and upgrades all development dependencies.**
+
+(It'd be great to get this merged into `ejs` proper, so this fork could be deleted!)
 
 ## Features
 
