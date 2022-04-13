@@ -27,3 +27,6 @@ docs/
 examples/
 out/
 test/
+.github/
+.eslint*
+.travis.yml
