@@ -14,10 +14,10 @@
   "unpkg": "ejs.min.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mde/ejs.git"
+    "url": "git@github.com:mceachen/ejs.git"
   },
-  "bugs": "https://github.com/mde/ejs/issues",
-  "homepage": "https://github.com/mde/ejs",
+  "bugs": "https://github.com/mceachen/ejs/issues",
+  "homepage": "https://github.com/mceachen/ejs",
   "devDependencies": {
     "browserify": "^17.0.0",
     "eslint": "^8.13.0",
