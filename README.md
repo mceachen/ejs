@@ -1,8 +1,9 @@
 Embedded JavaScript templates
 
-[![Node.js CI](https://github.com/mceachen/ejs/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/mceachen/ejs/actions/workflows/node.js.yml)
-[![Known Vulnerabilities](https://snyk.io/test/npm/@mceachen/ejs/badge.svg?style=flat)](https://snyk.io/test/npm/@mceachen/ejs)
-=============================
+[![npm version](https://img.shields.io/npm/v/exiftool-vendored.svg)](https://www.npmjs.com/package/exiftool-vendored)
+[![Node.js CI](https://github.com/mceachen/ejs/actions/workflows/node.js.yml/badge.svg)](https://github.com/mceachen/ejs/actions/workflows/node.js.yml)
+[![Known Vulnerabilities](https://snyk.io/test/npm/@mceachen/ejs/badge.svg)](https://snyk.io/test/npm/@mceachen/ejs)
+
 
 ## Installation
 
