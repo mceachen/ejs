@@ -67,17 +67,14 @@ task('test', ['lint'], function () {
   spawnSync(path.join('./node_modules/.bin/mocha'), ['-u', 'tdd'], {stdio: 'inherit'});
 });
 
-publishTask('ejs', ['build'], function () {
+publishTask('@mceachen/ejs', ['build'], function () {
   this.packageFiles.include([
-    'jakefile.js',
     'README.md',
     'LICENSE',
     'package.json',
     'ejs.js',
     'ejs.min.js',
     'lib/**',
-    'bin/**',
-    'usage.txt'
   ]);
 });
 
