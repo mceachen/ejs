@@ -1,7 +1,6 @@
 Embedded JavaScript templates<br/>
-[![Build Status](https://img.shields.io/travis/mde/ejs/master.svg?style=flat)](https://travis-ci.org/mde/ejs)
-[![Developing Dependencies](https://img.shields.io/david/dev/mde/ejs.svg?style=flat)](https://david-dm.org/mde/ejs?type=dev)
-[![Known Vulnerabilities](https://snyk.io/test/npm/ejs/badge.svg?style=flat)](https://snyk.io/test/npm/ejs)
+[![Node.js CI](https://github.com/mceachen/ejs/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/mceachen/ejs/actions/workflows/node.js.yml)
+[![Known Vulnerabilities](https://snyk.io/test/npm/@mceachen/ejs/badge.svg?style=flat)](https://snyk.io/test/npm/@mceachen/ejs)
 =============================
 
 ## Installation
@@ -11,7 +10,7 @@ $ npm install @mceachen/ejs
 ```
 ## Fork information
 
-This fork removes CLI support (allowing us to drop the `jake` dependency).
+**This fork removes CLI support (allowing us to drop the `jake` dependency), and upgrades all development dependencies.**
 
 ## Features
 
