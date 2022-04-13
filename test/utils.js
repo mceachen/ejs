@@ -232,8 +232,8 @@ suite('unit testing exported functions of module \'utils.js\'', function () {
    */
   suite('unit testing function \'hyphenToCamel\' of module \'utils.js\'', function () {
     test('it should be callable without parameters', function () {
-      const message = `Cannot read properties of undefined (reading 'replace')`;
-      assert.throws(() => { utils.hyphenToCamel(); }, { name: 'TypeError', message });
+      // UGH different versions of Node change this error message...
+      assert.throws(() => { utils.hyphenToCamel(); }, /TypeError: Cannot read propert(y|ies).*?of undefined/i);
     });
     test('it should be callable with parameter \'str\' {string}', function () {
       const str = 'some string';
