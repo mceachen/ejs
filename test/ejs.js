@@ -11,6 +11,7 @@ var read = fs.readFileSync;
 var assert = require('assert');
 var path = require('path');
 var LRU = require('lru-cache');
+const { test, suite, teardown } = require('mocha');
 let lf = process.platform !== 'win32' ? '\n' : '\r\n';
 
 try {
@@ -358,7 +359,7 @@ suite('ejs.render(str, data, opts)', function () {
     var expected = '<p>Old</p>';
 
     // Switch to LRU
-    ejs.cache = LRU();
+    ejs.cache = new LRU({max: 256});
 
     out = ejs.render('<p>Old</p>', {}, options);
     assert.equal(out, expected);
@@ -607,7 +608,7 @@ suite('cache specific', function () {
     var options = {cache: true, filename: file};
     var out;
 
-    ejs.cache = LRU();
+    ejs.cache = new LRU({max: 256});
 
     out = ejs.render('<p>Old</p>', {}, options);
     assert.equal(out, expected);
@@ -626,7 +627,7 @@ suite('cache specific', function () {
     var expected;
     var file;
 
-    ejs.cache = LRU(1);
+    ejs.cache = new LRU({max: 1});
 
     file = __dirname + '/tmp/render1.ejs';
     options = {cache: true, filename: file};
