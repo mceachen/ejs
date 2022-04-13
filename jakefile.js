@@ -1,6 +1,6 @@
+const { execSync, spawnSync } = require('child_process');
 var fs = require('fs');
 var path = require('path');
-var execSync = require('child_process').execSync;
 var exec = function (cmd) {
   execSync(cmd, {stdio: 'inherit'});
 };
@@ -12,7 +12,7 @@ task('build', ['lint', 'clean', 'browserify', 'minify'], function () {
 });
 
 desc('Cleans browerified/minified files and package files');
-task('clean', ['clobber'], function () {
+task('clean', function () {
   jake.rmRf('./ejs.js');
   jake.rmRf('./ejs.min.js');
   console.log('Cleaned up compiled files.');
@@ -64,7 +64,7 @@ task('docPublish', ['doc'], function () {
 
 desc('Runs the EJS test suite');
 task('test', ['lint'], function () {
-  exec(path.join('./node_modules/.bin/mocha'));
+  spawnSync(path.join('./node_modules/.bin/mocha'), ['-u', 'tdd'], {stdio: 'inherit'});
 });
 
 publishTask('ejs', ['build'], function () {
