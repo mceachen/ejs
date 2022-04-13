@@ -20,3 +20,10 @@ doc/
 coverage/
 out/
 pkg/
+jakefile.js
+benchmark/
+bin/
+docs/
+examples/
+out/
+test/
