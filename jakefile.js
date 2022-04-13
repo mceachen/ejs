@@ -1,4 +1,4 @@
-const { execSync, spawnSync } = require('child_process');
+const { execSync } = require('child_process');
 var fs = require('fs');
 var path = require('path');
 var exec = function (cmd) {
@@ -64,5 +64,5 @@ task('docPublish', ['doc'], function () {
 
 desc('Runs the EJS test suite');
 task('test', ['lint'], function () {
-  spawnSync(path.join('./node_modules/.bin/mocha'), ['-u', 'tdd'], {stdio: 'inherit'});
+  exec(path.join('./node_modules/.bin/mocha'));
 });

@@ -34,7 +34,7 @@
   },
   "scripts": {
     "jake": "jake -f jakefile.js",
-    "test": "mocha -u tdd",
+    "test": "mocha",
     "release": "release-it"
   },
   "release-it": {
