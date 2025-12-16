@@ -1,5 +1,5 @@
 {
-  "name": "@mceachen/ejs",
+  "name": "@photostructure/ejs",
   "description": "Embedded JavaScript templates",
   "keywords": [
     "template",
@@ -15,7 +15,7 @@
   "unpkg": "ejs.min.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:mceachen/ejs.git"
+    "url": "git@github.com:photostructure/ejs.git"
   },
   "devDependencies": {
     "browserify": "^17.0.1",
