@@ -12,7 +12,7 @@ $ npm install @photostructure/ejs
 
 ## Fork information
 
-This is an actively maintained fork of [mde/ejs](https://github.com/mde/ejs) by [@photostructure](https://github.com/photostructure).
+This is an actively maintained fork of [mde/ejs](https://github.com/mde/ejs) sponsored by [PhotoStructure](https://photostructure.com/).
 
 Changes from upstream:
 
