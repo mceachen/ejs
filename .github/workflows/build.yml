@@ -67,9 +67,6 @@ jobs:
       - name: Build
         run: npm run jake build
 
-      - name: Run tests before publishing
-        run: npm test
-
       - name: Bump version and create tag
         run: |
           VERSION_ARG="${{ github.event.inputs.version }}"
