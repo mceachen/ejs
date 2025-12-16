@@ -11,7 +11,8 @@ var assert = require('assert');
 var path = require('path');
 var { LRUCache: LRU } = require('lru-cache');
 const { test, suite, teardown } = require('mocha');
-let lf = process.platform !== 'win32' ? '\n' : '\r\n';
+// Use LF consistently - .gitattributes enforces LF line endings for all files
+let lf = '\n';
 
 try {
   fs.mkdirSync(__dirname + '/tmp');
@@ -851,8 +852,6 @@ suite('exceptions', function () {
     catch (err) {
       assert.equal(err.path, 'error.ejs');
       var errstck = err.stack.split('\n').slice(0, 8).join('\n');
-      errstck = errstck.replace(/\n/g,lf);
-      errstck = errstck.replace(/\r\r\n/g,lf);
       assert.equal(errstck, fixture('error.out'));
       return;
     }
@@ -869,8 +868,6 @@ suite('exceptions', function () {
     catch (err) {
       assert.ok(!err.path);
       var errstck = err.stack.split('\n').slice(0, 8).join('\n');
-      errstck = errstck.replace(/\n/g,lf);
-      errstck = errstck.replace(/\r\r\n/g,lf);
       assert.notEqual(errstck, fixture('error.out'));
       return;
     }
@@ -923,7 +920,20 @@ suite('exceptions', function () {
 suite('rmWhitespace', function () {
   test('works', function () {
     var outp = ejs.render(fixture('rmWhitespace.ejs'), {}, {rmWhitespace: true});
-    assert.equal(outp.replace(/\n/g,lf), fixture('rmWhitespace.html'));
+    assert.equal(outp, fixture('rmWhitespace.html'));
+  });
+
+  test('normalizes CRLF to LF', function () {
+    // rmWhitespace intentionally normalizes all line endings to LF
+    var input = '<p>\r\n  <%= name %>\r\n</p>';
+    var outp = ejs.render(input, {name: 'test'}, {rmWhitespace: true});
+    assert.equal(outp, '<p>\ntest\n</p>');
+  });
+
+  test('strips leading/trailing whitespace from lines', function () {
+    var input = '<p>\n  <%= name %>  \n</p>';
+    var outp = ejs.render(input, {name: 'test'}, {rmWhitespace: true});
+    assert.equal(outp, '<p>\ntest\n</p>');
   });
 });
 
