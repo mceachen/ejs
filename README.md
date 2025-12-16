@@ -1,7 +1,7 @@
 Embedded JavaScript templates
 
 [![npm version](https://img.shields.io/npm/v/@mceachen/ejs.svg)](https://www.npmjs.com/package/@mceachen/ejs)
-[![Node.js CI](https://github.com/mceachen/ejs/actions/workflows/node.js.yml/badge.svg)](https://github.com/mceachen/ejs/actions/workflows/node.js.yml)
+[![Node.js CI](https://github.com/mceachen/ejs/actions/workflows/build.yml/badge.svg)](https://github.com/mceachen/ejs/actions/workflows/build.yml)
 [![Known Vulnerabilities](https://snyk.io/test/npm/@mceachen/ejs/badge.svg)](https://snyk.io/test/npm/@mceachen/ejs)
 
 ## Installation
