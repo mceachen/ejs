@@ -7,6 +7,8 @@ var exec = function (cmd) {
 
 /* global jake, task, desc */
 
+task('default', ['build']);
+
 task('build', ['lint', 'clean', 'browserify', 'minify'], function () {
   console.log('Build completed.');
 });
