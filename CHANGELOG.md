@@ -1,3 +1,21 @@
+
+## v4.1.0: 2025-12-15
+
+- Fix cache compatibility with lru-cache v7+
+- Security fixes from upstream
+
+## v4.0.1: 2022-09-18
+
+- Fix relative paths in CLI includes ([#687](https://github.com/mde/ejs/pull/687))
+
+## v4.0.0: 2022-09-17
+
+This is a fork of [mde/ejs](https://github.com/mde/ejs) maintained by [@photostructure](https://github.com/photostructure). See the [README](README.md) for details.
+
+- Removed require.extensions
+- Removed legacy preprocessor include
+- Removed support for EOL Node versions
+
 ## v3.0.1: 2019-11-23
   * Removed require.extensions (@mde)
   * Removed legacy preprocessor include (@mde)
