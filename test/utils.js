@@ -79,30 +79,41 @@ suite('unit testing exported functions of module \'utils.js\'', function () {
 
   /**
    *  Unit testing of exported function 'escapeXML.toString'
+   *  This function produces serializable code for client-side rendering.
+   *  Rather than exact string matching (which breaks across Node versions),
+   *  verify the essential components are present.
    */
-  suite('unit testing function \'escapeXML\' of module \'utils.js\'', function () {
+  suite('unit testing function \'escapeXML.toString\' of module \'utils.js\'', function () {
     test('it should be callable without parameters', function () {
-      const stringified =
-`function (markup) {
-  return markup == undefined
-    ? ''
-    : String(markup)
-      .replace(_MATCH_HTML, encode_char);
-};
-var _ENCODE_HTML_RULES = {
-      "&": "&amp;"
-    , "<": "&lt;"
-    , ">": "&gt;"
-    , '"': "&#34;"
-    , "'": "&#39;"
-    }
-  , _MATCH_HTML = /[&<>'"]/g;
-function encode_char(c) {
-  return _ENCODE_HTML_RULES[c] || c;
-};
-`;
       assert.doesNotThrow(() => { utils.escapeXML.toString(); });
-      assert.ok(utils.escapeXML.toString()===stringified);
+    });
+    test('toString output contains essential escape code components', function () {
+      const result = utils.escapeXML.toString();
+      // Must contain the main function body
+      assert.ok(result.includes('markup'), 'should contain markup parameter');
+      assert.ok(result.includes('_MATCH_HTML'), 'should reference _MATCH_HTML');
+      assert.ok(result.includes('encode_char'), 'should reference encode_char');
+      // Must contain the encoding rules for client-side use
+      assert.ok(result.includes('_ENCODE_HTML_RULES'), 'should contain encoding rules object');
+      assert.ok(result.includes('"&": "&amp;"') || result.includes("'&': '&amp;'"), 'should escape ampersand');
+      assert.ok(result.includes('"<": "&lt;"') || result.includes("'<': '&lt;'"), 'should escape less-than');
+      assert.ok(result.includes('">"'), 'should escape greater-than');
+      // Must contain the encode_char helper function
+      assert.ok(result.includes('function encode_char'), 'should contain encode_char function');
+    });
+    test('toString output is evaluable JavaScript for client-side use', function () {
+      const result = utils.escapeXML.toString();
+      // The output is designed to be used as: escapeFn = escapeFn || <toString>
+      // This creates a function with its required helpers (encoding rules, etc.)
+      assert.doesNotThrow(() => {
+        // eslint-disable-next-line no-new-func
+        const fn = new Function('var escapeFn; escapeFn = escapeFn || ' + result + ' return escapeFn;')();
+        // The evaluated function should work like escapeXML
+        assert.strictEqual(fn('<script>'), '&lt;script&gt;');
+        assert.strictEqual(fn('a & b'), 'a &amp; b');
+        assert.strictEqual(fn('"quoted"'), '&#34;quoted&#34;');
+        assert.strictEqual(fn("'single'"), '&#39;single&#39;');
+      });
     });
   });
 
