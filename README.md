@@ -11,9 +11,13 @@ $ npm install @mceachen/ejs
 ```
 ## Fork information
 
-**This fork removes CLI support (allowing us to drop the `jake` dependency), and upgrades all development dependencies.**
+- Removed CLI support, which allowed dropping the `jake` dependency (it still remains as a devDependency for building docs and such)
+- Updated all development dependencies. This required a new eslint config, new lru-cache usage, etc.
+- Updated GitHub Actions build workflow to run on modern versions of Node.js
+- Updated release workflow to require the full build matrix to pass before releasing
+- Updated release workflow to use OIDC signing and to [sign git tags](https://github.com/photostructure/git-ssh-signing-action)
 
-(It'd be great to get this merged into `ejs` proper, so this fork could be deleted!)
+(It'd be great to get all these merged into `ejs` proper, so this fork could be deleted!)
 
 ## Features
 
