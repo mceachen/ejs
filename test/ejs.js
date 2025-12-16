@@ -9,7 +9,7 @@ var fs = require('fs');
 var read = fs.readFileSync;
 var assert = require('assert');
 var path = require('path');
-var LRU = require('lru-cache');
+var { LRUCache: LRU } = require('lru-cache');
 const { test, suite, teardown } = require('mocha');
 let lf = process.platform !== 'win32' ? '\n' : '\r\n';
 
