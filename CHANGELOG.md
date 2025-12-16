@@ -1,8 +1,7 @@
-## v4.2.0: 2025-12-16
+## v5.0.0: 2025-12-16
 
+- Renamed package from `@mceachen/ejs` to `@photostructure/ejs` and moved repository to [github.com/photostructure/ejs](https://github.com/photostructure/ejs)
 - Added TypeScript type definitions (`index.d.ts`)
-- Renamed package from `@mceachen/ejs` to `@photostructure/ejs`
-- Moved repository to [github.com/photostructure/ejs](https://github.com/photostructure/ejs)
 
 ## v4.1.1: 2025-12-15
 
