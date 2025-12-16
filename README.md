@@ -1,23 +1,26 @@
 Embedded JavaScript templates
 
-[![npm version](https://img.shields.io/npm/v/@mceachen/ejs.svg)](https://www.npmjs.com/package/@mceachen/ejs)
-[![Node.js CI](https://github.com/mceachen/ejs/actions/workflows/build.yml/badge.svg)](https://github.com/mceachen/ejs/actions/workflows/build.yml)
-[![Known Vulnerabilities](https://snyk.io/test/npm/@mceachen/ejs/badge.svg)](https://snyk.io/test/npm/@mceachen/ejs)
+[![npm version](https://img.shields.io/npm/v/@photostructure/ejs.svg)](https://www.npmjs.com/package/@photostructure/ejs)
+[![Node.js CI](https://github.com/photostructure/ejs/actions/workflows/build.yml/badge.svg)](https://github.com/photostructure/ejs/actions/workflows/build.yml)
+[![Known Vulnerabilities](https://snyk.io/test/npm/@photostructure/ejs/badge.svg)](https://snyk.io/test/npm/@photostructure/ejs)
 
 ## Installation
 
 ```bash
-$ npm install @mceachen/ejs
+$ npm install @photostructure/ejs
 ```
+
 ## Fork information
 
-- Removed CLI support, which allowed dropping the `jake` dependency (it still remains as a devDependency for building docs and such)
-- Updated all development dependencies. This required a new eslint config, new lru-cache usage, etc.
-- Updated GitHub Actions build workflow to run on modern versions of Node.js
-- Updated release workflow to require the full build matrix to pass before releasing
-- Updated release workflow to use OIDC signing and to [sign git tags](https://github.com/photostructure/git-ssh-signing-action)
+This is an actively maintained fork of [mde/ejs](https://github.com/mde/ejs) by [@photostructure](https://github.com/photostructure).
 
-(It'd be great to get all these merged into `ejs` proper, so this fork could be deleted!)
+Changes from upstream:
+
+- TypeScript types included (and tested with `tsd`)
+- Removed CLI support (dropped `jake` runtime dependency)
+- Updated all development dependencies (eslint, lru-cache v7+ compatibility, etc.)
+- Security fixes from upstream
+- Modern GitHub Actions with OIDC signing and [signed git tags](https://github.com/photostructure/git-ssh-signing-action)
 
 ## Features
 

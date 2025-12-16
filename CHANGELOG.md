@@ -1,3 +1,9 @@
+## v4.2.0: 2025-12-16
+
+- Added TypeScript type definitions (`index.d.ts`)
+- Renamed package from `@mceachen/ejs` to `@photostructure/ejs`
+- Moved repository to [github.com/photostructure/ejs](https://github.com/photostructure/ejs)
+
 ## v4.1.1: 2025-12-15
 
 - Re-release 4.1.0 with improved GHA build steps

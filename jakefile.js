@@ -64,7 +64,13 @@ task('docPublish', ['doc'], function () {
   console.log('Docs published to gh-pages.');
 });
 
+desc('Runs TypeScript type tests');
+task('typecheck', function () {
+  exec(path.join('./node_modules/.bin/tsd'));
+  console.log('Type checking completed.');
+});
+
 desc('Runs the EJS test suite');
-task('test', ['lint'], function () {
+task('test', ['lint', 'typecheck'], function () {
   exec(path.join('./node_modules/.bin/mocha'));
 });

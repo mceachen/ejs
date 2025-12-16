@@ -1,4 +1,5 @@
 test/
+*.test-d.ts
 
 # Copied from .gitignore
 v8.log

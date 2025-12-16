@@ -22,6 +22,7 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: npm run jake lint
+      - run: npm run test:types
 
   test:
     runs-on: ${{ matrix.os }}
