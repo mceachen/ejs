@@ -20,6 +20,7 @@
     "browserify": "^17.0.1",
     "eslint": "^9.39.2",
     "git-directory-deploy": "^1.5.1",
+    "globals": "^16.5.0",
     "jake": "^10.9.4",
     "jsdoc": "^4.0.5",
     "lru-cache": "^11.2.4",
