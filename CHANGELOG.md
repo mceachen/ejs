@@ -1,3 +1,6 @@
+## v4.1.1: 2025-12-15
+
+- Re-release 4.1.0 with improved GHA build steps
 
 ## v4.1.0: 2025-12-15
 
