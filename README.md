@@ -130,7 +130,7 @@ the both the public & private API docs, run `jake devdoc` instead.
 - `-%>` Trim-mode ('newline slurp') tag, trims following newline
 - `_%>` 'Whitespace Slurping' ending tag, removes all whitespace after it
 
-For the full syntax documentation, please see [docs/syntax.md](https://github.com/mde/ejs/blob/master/docs/syntax.md).
+For the full syntax documentation, please see [docs/syntax.md](https://github.com/photostructure/ejs/blob/main/docs/syntax.md).
 
 ### Includes
 
@@ -166,7 +166,7 @@ not supported in v3.0+.
 Custom delimiters can be applied on a per-template basis, or globally:
 
 ```javascript
-let ejs = require("ejs"),
+let ejs = require("@photostructure/ejs"),
   users = ["geddy", "neil", "alex"];
 
 // Just one template
@@ -192,7 +192,7 @@ functions used to render templates. It's easy to plug in LRU caching using
 Node's `lru-cache` library:
 
 ```javascript
-let ejs = require("ejs"),
+let ejs = require("@photostructure/ejs"),
   LRU = require("lru-cache");
 ejs.cache = new LRU({ size: 100 }); // LRU cache with 100-item limit
 ```
@@ -206,7 +206,7 @@ of the LRU.
 The default file loader is `fs.readFileSync`, if you want to customize it, you can set ejs.fileLoader.
 
 ```javascript
-let ejs = require("ejs");
+let ejs = require("@photostructure/ejs");
 let myFileLoad = function (filePath) {
   return "myFileLoad: " + fs.readFileSync(filePath);
 };
@@ -234,7 +234,7 @@ including headers and footers, like so:
 
 ## Client-side support
 
-Go to the [Latest Release](https://github.com/mde/ejs/releases/latest), download
+Go to the [Latest Release](https://github.com/photostructure/ejs/releases/latest), download
 `./ejs.js` or `./ejs.min.js`. Alternately, you can compile it yourself by cloning
 the repository and running `jake build` (or `$(npm bin)/jake build` if jake is
 not installed globally).
@@ -276,7 +276,7 @@ fn(data, null, function (path, d) {
 }); // returns rendered string
 ```
 
-See the [examples folder](https://github.com/mde/ejs/tree/master/examples) for more details.
+See the [examples folder](https://github.com/photostructure/ejs/tree/main/examples) for more details.
 
 ## IDE Integration with Syntax Highlighting
 

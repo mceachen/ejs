@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git remote add:*)",
+      "Bash(git fetch:*)",
+      "Bash(npm run jake:*)",
+      "Bash(gh run view:*)",
+      "Bash(git -C /home/mrm/src/ejs remote:*)",
+      "Bash(git -C /home/mrm/src/ejs log --oneline main --not upstream/main)",
+      "Bash(git -C /home/mrm/src/ejs diff upstream/main -- lib/ejs.js)",
+      "Bash(npm run test:types:*)",
+      "Bash(xxd:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

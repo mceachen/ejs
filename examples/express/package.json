@@ -5,7 +5,7 @@
     "start": "node ./app.js"
   },
   "dependencies": {
-    "ejs": "^3.1.8",
+    "@photostructure/ejs": "^5.0.0",
     "express": "~4.16.0"
   }
 }

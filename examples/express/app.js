@@ -1,6 +1,6 @@
 var express = require('express');
 var path = require('path');
-var ejs = require('ejs');
+var ejs = require('@photostructure/ejs');
 
 var app = express();
 app.set('views', path.join(__dirname, 'views'));
