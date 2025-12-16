@@ -13,14 +13,22 @@ on:
         type: string
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm run jake lint
 
+  test:
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         node-version: [20, 22, 24, 25]
-
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       - name: Use Node.js ${{ matrix.node-version }}
@@ -32,7 +40,7 @@ jobs:
 
   publish:
     runs-on: ubuntu-24.04
-    needs: [build]
+    needs: [lint, test]
     if: ${{ github.event_name == 'workflow_dispatch' }}
     permissions:
       id-token: write # Required for OIDC trusted publishing
@@ -50,7 +58,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
 
       - name: Set up SSH signing
-        uses: photostructure/git-ssh-signing-action@v1
+        uses: photostructure/git-ssh-signing-action@fdd4b062a9ba41473f013258cc9c7eea1640f826 # v1.2.0
         with:
           ssh-signing-key: ${{ secrets.SSH_SIGNING_KEY }}
           git-user-name: ${{ secrets.GIT_USER_NAME }}
