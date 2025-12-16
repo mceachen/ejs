@@ -106,7 +106,6 @@ suite('unit testing exported functions of module \'utils.js\'', function () {
       // The output is designed to be used as: escapeFn = escapeFn || <toString>
       // This creates a function with its required helpers (encoding rules, etc.)
       assert.doesNotThrow(() => {
-        // eslint-disable-next-line no-new-func
         const fn = new Function('var escapeFn; escapeFn = escapeFn || ' + result + ' return escapeFn;')();
         // The evaluated function should work like escapeXML
         assert.strictEqual(fn('<script>'), '&lt;script&gt;');
